@@ -4,7 +4,6 @@ spring:
       name: service-emaillist
    profiles:
       active: development
-
             
 ---
 # configuration: common
@@ -18,8 +17,6 @@ spring:
          
 mybatis:
    config-location: classpath:mybatis/configuration.xml
-
-
 
 ---
 # configuration: development
@@ -46,8 +43,6 @@ logging:
       console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n"
    level:
       root: INFO
-
-           
                             
 ---
 # configuration: production
