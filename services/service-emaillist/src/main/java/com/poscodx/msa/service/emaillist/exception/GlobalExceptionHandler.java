@@ -19,13 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 public class GlobalExceptionHandler {
 	
 	@ResponseBody
-	@ExceptionHandler(NoHandlerFoundException.class)
-	public ResponseEntity<?> NoHandlerFoundException(Exception e) {
-		// 응답
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(JsonResult.fail(e.toString()));
-	}
-	
-	@ResponseBody
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<?> handlerException(Exception e) {		
 		// 로깅(Logging)

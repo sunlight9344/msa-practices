@@ -2,6 +2,7 @@ package com.poscodx.emaillist.exception;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,31 +11,30 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
-import com.poscodx.emaillist.dto.JsonResult;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	
+	@ExceptionHandler(NoHandlerFoundException.class)
+	public String NoHandlerFoundException(Exception e) {
+		// 응답
+		return "index";
+	}
+	
 	@ResponseBody
 	@ExceptionHandler
-	public ResponseEntity<JsonResult> handlerException(Exception e) {
+	public ResponseEntity<?> handlerException(Exception e) {
+		
 		// 로깅(Logging)
 		StringWriter errors = new StringWriter();
 		e.printStackTrace(new PrintWriter(errors));
 		log.error(errors.toString());
 		
 		// 응답
-		JsonResult jsonResult =
-				(e instanceof NoHandlerFoundException) ?
-				    JsonResult.fail("unKnown Request") :
-				    JsonResult.fail(errors.toString()) ;
-		
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(jsonResult);
+				.body(Map.of("error", errors.toString()));
 	}
-	
 }

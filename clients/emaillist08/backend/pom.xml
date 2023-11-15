@@ -8,7 +8,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.16</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<groupId>com.poscodx</groupId>
@@ -19,10 +19,17 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+		<spring-cloud.version>2021.0.8</spring-cloud.version>
 		<java.version>17</java.version>
 	</properties>
 	
 	<dependencies>
+		<!-- Spring Cloud Discovery: Netflix Eureka Client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+				
 		<!-- Spring Boot Dev Tools: Live Reload -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -33,13 +40,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		
-		<!-- MyBatis Starter -->
-		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>2.2.0</version>
 		</dependency>
 		
 		<!-- Thymeleaf Starter -->
@@ -53,12 +53,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		
-		<!-- mariadb jdbc driver -->		
-		<dependency>
-		    <groupId>org.mariadb.jdbc</groupId>
-		    <artifactId>mariadb-java-client</artifactId>
-		</dependency>
 
 		<!-- Spring Boot Test Integration -->
 		<dependency>
@@ -68,6 +62,18 @@
 		</dependency>
 	</dependencies>
 	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+		
 	<build>
 		<finalName>emaillist08</finalName>
 		<plugins>
