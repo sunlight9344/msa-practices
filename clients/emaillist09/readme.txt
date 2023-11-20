@@ -9,7 +9,7 @@
         # java -Dspring.profiles.active=production -jar emaillist08/backend/target/emaillist08.jar 
 
 2. frontend
-
+d
 
 3-1. deploy: ssh 연결(ssh key 인증)
 1)  key 생성하기
