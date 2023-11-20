@@ -10,7 +10,11 @@ Spring Cloud Gateway
 	<artifactId>spring-cloud-starter-gateway</artifactId>
 </dependency>
 
-
+<!-- Spring Cloud Discovery: Netflix Eureka Client -->
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
 
 
 ===
@@ -91,11 +95,13 @@ spring:
 
    - 외부 리소스를 못 가져오는 단점
    - XSS 등과 같은 보안 취약점을 사전에 방지할 수 있다.
-
-4. CORS(Cross Orign Resource Sharing) Error
+   - SOP 위반
 	<p>
 	   Access to fetch at 'http://localhost:8888/api' from origin 'http://localhost:9999' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
-	</p>
+	</p>   
+
+4. CORS(Cross Orign Resource Sharing)
+
 
 5. 해결방법 1: simple request
 
