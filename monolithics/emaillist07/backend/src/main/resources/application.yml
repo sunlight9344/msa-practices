@@ -45,9 +45,9 @@ spring:
          
    datasource:
       driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mariadb://192.168.0.180:3307/webdb?charset=utf8
-      username: webdb
-      password: webdb
+      url: jdbc:mariadb://mydatabase.ck1jram3va8d.ap-northeast-1.rds.amazonaws.com:3306/emaillist?charset=utf8
+      username: admin
+      password: wjsdpwns1!
       hikari:
          minumum-idle: 10
          maximum-pool-size: 20
@@ -70,9 +70,9 @@ spring:
 
    datasource:
       driver-class-name: org.mariadb.jdbc.Driver
-      url: jdbc:mariadb://192.168.0.180:3307/webdb?charset=utf8
-      username: webdb
-      password: webdb
+      url: jdbc:mariadb://mydatabase.ck1jram3va8d.ap-northeast-1.rds.amazonaws.com:3306/emaillist?charset=utf8
+      username: admin
+      password: wjsdpwns1!
       hikari:
          minumum-idle: 10
          maximum-pool-size: 20
